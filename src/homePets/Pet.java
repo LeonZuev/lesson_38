@@ -28,14 +28,16 @@ public class Pet {
   private Double weight = 0.0;
 
   public setName(String name) {
-    name = petName;
+    this.name = petName;
   }
   private setDate(String date) { //дата рождения неизменна, поэтому приват?
-    date = petDate;
+    this.date = petDate;
   }
   public setWeight(Double weight) {
-    weight = petWeight;
+    this.weight = petWeight;
   }
+
+
 
 
 
