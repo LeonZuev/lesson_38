@@ -44,8 +44,9 @@ public class Student {
     List<Map<String, String>> studentsRecords = new ArrayList<>();
 
     try {
-      File newFile = new File("res/studentsNames.txt"); // создаём путь к файлу
-      BufferedReader br = new BufferedReader(new FileReader("studentsNames.txt"));//читаем
+      File newFile = new File("~/IdeaProjects/lesson_38/lesson_38/res/studentsNames.txt"); //
+      // создаём путь к файлу
+      BufferedReader br = new BufferedReader(new FileReader(newFile));//читаем
 
       for (String line = br.readLine(); line!=null; line = br.readLine()) {
         int lastStep = line.lastIndexOf(SEP);
