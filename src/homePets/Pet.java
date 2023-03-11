@@ -1,11 +1,13 @@
 package homePets;
 
+import javax.naming.Name;
+
 public class Pet {
   /*
   В классе должны быть:
 
-enum Kind для вида животного (DOG, CAT, OTHER);+
-поля:
++enum Kind для вида животного (DOG, CAT, OTHER);
+ поля:
 "вид животного" (тип Kind),
 "кличка" (тип String),
 "дата рождения" (тип String),
@@ -18,6 +20,23 @@ enum Kind для вида животного (DOG, CAT, OTHER);+
     DOG,
     CAT,
     OTHER,
-
   }
+
+  private Kind type;
+  private String name = null;
+  private String date = null;
+  private Double weight = 0.0;
+
+  public setName(String name) {
+    name = petName;
+  }
+  private setDate(String date) { //дата рождения неизменна, поэтому приват?
+    date = petDate;
+  }
+  public setWeight(Double weight) {
+    weight = petWeight;
+  }
+
+
+
 }
