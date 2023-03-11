@@ -1,10 +1,11 @@
 package students;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
-import static sun.java2d.Disposer.records;
+import java.util.List;
+import  java.util.Map;
 
 public class Student {
 
@@ -39,29 +40,31 @@ public class Student {
     this.eMail = eMail;
   }
   // Добавить в базу данных студентов чтение данных из файла.
-  public static void readFile(String[] args) throws IOException { // main?
+  public static List<Map<String, String>> Student() throws IOException {
+    List<Map<String, String>> studentsRecords = new ArrayList<>();
+
     try {
       File newFile = new File("res/studentsNames.txt"); // создаём путь к файлу
-      BufferedReader bufferedReader = new BufferedReader(new FileReader("studentsNames.txt"));
-      for (String line = bufferedReader.readLine(); line!=null; line = bufferedReader.readLine()) {
+      BufferedReader br = new BufferedReader(new FileReader("studentsNames.txt"));//читаем
+
+      for (String line = br.readLine(); line!=null; line = br.readLine()) {
         int lastStep = line.lastIndexOf(SEP);
         String name = line.substring(0, lastStep);
-        String group = line.substring(lastStep + 1, lastStep);
-        String eMail = line.substring(lastStep + 1, lastStep);
+        String group = line.substring(lastStep + 1, line.lastIndexOf(SEP));
+        String eMail = line.substring(line.lastIndexOf(SEP) + 1);
 
-        Map<String, String, String> entry = new HashMap<>(); //TODO массив или список?
+        Map<String, String> entry = new HashMap<>();
         entry.put("name", name);
         entry.put("group", group);
         entry.put("eMail", eMail);
-        records.add(entry);
-
+        studentsRecords.add(entry);
       }
 
-      bufferedReader.close();
-    } catch (FileNotFoundException) {
+      br.close();
+    } catch (FileNotFoundException e) {
       System.out.println("File not found.");
-      // TODO finish readFile
     }
+    return studentsRecords;
   }
 
   public String getName() {
