@@ -40,7 +40,7 @@ public class Student {
     this.eMail = eMail;
   }
   // Добавить в базу данных студентов чтение данных из файла.
-  public static List<Map<String, String>> Student() throws IOException {
+  public static List<Map<String, String>> readFile() throws IOException {
     List<Map<String, String>> studentsRecords = new ArrayList<>();
 
     try {
@@ -58,6 +58,7 @@ public class Student {
         entry.put("group", group);
         entry.put("eMail", eMail);
         studentsRecords.add(entry);
+        System.out.println();
       }
 
       br.close();
