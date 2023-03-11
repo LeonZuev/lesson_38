@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
-import  java.util.Map;
+import java.util.Map;
 
 public class Student {
 
@@ -39,16 +39,17 @@ public class Student {
     this.group = group;
     this.eMail = eMail;
   }
+
   // Добавить в базу данных студентов чтение данных из файла.
   public static List<Map<String, String>> readFile() throws IOException {
     List<Map<String, String>> studentsRecords = new ArrayList<>();
 
     try {
-      File newFile = new File("~/IdeaProjects/lesson_38/lesson_38/res/studentsNames.txt"); //
+      File newFile = new File("/res/studentsNames.txt"); //
       // создаём путь к файлу
       BufferedReader br = new BufferedReader(new FileReader(newFile));//читаем
 
-      for (String line = br.readLine(); line!=null; line = br.readLine()) {
+      for (String line = br.readLine(); line != null; line = br.readLine()) {
         int lastStep = line.lastIndexOf(SEP);
         String name = line.substring(0, lastStep);
         String group = line.substring(lastStep + 1, line.lastIndexOf(SEP));
