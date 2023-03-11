@@ -1,6 +1,10 @@
 package students;
 
 import java.io.*;
+import java.util.HashMap;
+import java.util.Map;
+
+import static sun.java2d.Disposer.records;
 
 public class Student {
 
@@ -34,16 +38,25 @@ public class Student {
     this.group = group;
     this.eMail = eMail;
   }
-
-  public static void readFile(String, "studentsNames.txt") throws IOException {
+  // Добавить в базу данных студентов чтение данных из файла.
+  public static void readFile(String[] args) throws IOException { // main?
     try {
-      File studentsFile = new File("studentsNames.txt");
+      File newFile = new File("res/studentsNames.txt"); // создаём путь к файлу
       BufferedReader bufferedReader = new BufferedReader(new FileReader("studentsNames.txt"));
-      String line = bufferedReader.readLine();
-      while (line != null) {
-        System.out.println(line);
+      for (String line = bufferedReader.readLine(); line!=null; line = bufferedReader.readLine()) {
+        int lastStep = line.lastIndexOf(SEP);
+        String name = line.substring(0, lastStep);
+        String group = line.substring(lastStep + 1, lastStep);
+        String eMail = line.substring(lastStep + 1, lastStep);
+
+        Map<String, String, String> entry = new HashMap<>(); //TODO массив или список?
+        entry.put("name", name);
+        entry.put("group", group);
+        entry.put("eMail", eMail);
+        records.add(entry);
 
       }
+
       bufferedReader.close();
     } catch (FileNotFoundException) {
       System.out.println("File not found.");
