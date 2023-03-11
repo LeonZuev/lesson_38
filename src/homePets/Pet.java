@@ -8,11 +8,11 @@ public class Pet {
 
 +enum Kind для вида животного (DOG, CAT, OTHER);
  поля:
-"вид животного" (тип Kind),
-"кличка" (тип String),
-"дата рождения" (тип String),
-вес (тип double);
-конструктор, сеттеры, геттеры;
++"вид животного" (тип Kind),
++"кличка" (тип String),
++"дата рождения" (тип String),
++вес (тип double);
+конструктор, +сеттеры, +геттеры;
 статический метод для создания животного при прочтении данных из строки
 "dog,кличка", "cat,кличка,вес", "turtle,кличка,вес,дата рождения".
    */
@@ -33,8 +33,22 @@ public class Pet {
   private setDate(String date) { //дата рождения неизменна, поэтому приват?
     this.date = petDate;
   }
-  public setWeight(Double weight) {
+  public void setWeight(Double weight) {
+    if (weight < 0){
+      System.out.println("Вес не может быть отрицательным: " + weight);
+      return;
+    }
     this.weight = petWeight;
+  }
+
+  public String getName() {
+    return name;
+  }
+  public String getDate() {
+    return date;
+  }
+  public int getWeight() {
+    return weight;
   }
 
 
