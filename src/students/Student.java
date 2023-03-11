@@ -1,5 +1,7 @@
 package students;
 
+import java.io.*;
+
 public class Student {
 
   // статический - общий для всех студентов - счётчик
@@ -31,6 +33,22 @@ public class Student {
     this.name = name;
     this.group = group;
     this.eMail = eMail;
+  }
+
+  public static void readFile(String, "studentsNames.txt") throws IOException {
+    try {
+      File studentsFile = new File("studentsNames.txt");
+      BufferedReader bufferedReader = new BufferedReader(new FileReader("studentsNames.txt"));
+      String line = bufferedReader.readLine();
+      while (line != null) {
+        System.out.println(line);
+
+      }
+      bufferedReader.close();
+    } catch (FileNotFoundException) {
+      System.out.println("File not found.");
+      // TODO finish readFile
+    }
   }
 
   public String getName() {
