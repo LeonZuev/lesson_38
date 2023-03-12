@@ -57,6 +57,13 @@ public class Pet {
   public Double getWeight() {
     return weight;
   }
+
+  public Pet {
+    type;
+    name;
+    date;
+    weight;
+  }
   /*
   статический метод для создания животного при прочтении данных из строки
   "dog,кличка", "cat,кличка,вес", "turtle,кличка,вес,дата рождения".
@@ -64,10 +71,17 @@ public class Pet {
 
   final private static char SEP = ',';
   public static Pet parsePet(String str) {
-    int sepIndex = line.indexOf(SEP);
-    if (sepIndex != -1) {
-      String name = line.substring(0, sepIndex);
-      String date = line.substring(sepIndex+1, line.lastIndexOf(SEP));
+
+    int firstIndex = str.indexOf(SEP);
+    int secondIndex = str.indexOf(SEP, firstIndex + 1);
+    int thirdIndex = str.indexOf(SEP, secondIndex + 1);
+    int extraIndex = str.indexOf(SEP, thirdIndex + 1);
+
+
+    if (firstIndex != -1 && secondIndex != -1 && thirdIndex != -1 ) {
+      String name = str.substring(0, firstIndex);
+      String date = str.substring(firstIndex + 1, secondIndex);
+      String weight = str.substring(secondIndex + 1, thirdIndex);
       return new Pet(name, date, weight);
     }
   }
