@@ -1,6 +1,7 @@
 package homePets;
 
 import javax.naming.Name;
+import java.io.BufferedReader;
 
 public class Pet {
   /*
@@ -16,6 +17,7 @@ public class Pet {
 статический метод для создания животного при прочтении данных из строки
 "dog,кличка", "cat,кличка,вес", "turtle,кличка,вес,дата рождения".
    */
+  // атрибуты
   enum Kind {
     DOG,
     CAT,
@@ -29,43 +31,48 @@ public class Pet {
 
   //вопрос по сеттерам
 
-  public setName(String name) {
-    this.name = "petName";
+  public void setName(String name) {
+    this.name = name;
   }
-  private setDate(String date) { //дата рождения неизменна, поэтому приват?
-    this.date = "petDate";
+  private void setDate(String date) { //дата рождения неизменна, поэтому приват?
+    this.date = date;
   }
   public void setWeight(Double weight) {
     if (weight < 0){
       System.out.println("Вес не может быть отрицательным: " + weight);
       return;
     }
-    this.weight = 5.5;
+    this.weight = weight;
   }
 
+  public Kind getType() {
+    return type;
+  }
   public String getName() {
     return name;
   }
   public String getDate() {
     return date;
   }
-  public int getWeight() {
+  public Double getWeight() {
     return weight;
   }
   /*
   статический метод для создания животного при прочтении данных из строки
   "dog,кличка", "cat,кличка,вес", "turtle,кличка,вес,дата рождения".
    */
+
   final private static char SEP = ',';
-  public static Pet parsePet(String name, String date, int weight) {
+  public static Pet parsePet(String str) {
     int sepIndex = line.indexOf(SEP);
     if (sepIndex != -1) {
       String name = line.substring(0, sepIndex);
-      String date - line.substring(sepIndex+1, line.lastIndexOf(SEP));
-
+      String date = line.substring(sepIndex+1, line.lastIndexOf(SEP));
+      return new Pet(name, date, weight);
     }
-
   }
+
+
 
 
 
