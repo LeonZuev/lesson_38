@@ -1,4 +1,4 @@
-package homePets;
+/*package homePets;
 
 import javax.naming.Name;
 import java.io.BufferedReader;
@@ -16,7 +16,7 @@ public class Pet {
 конструктор, +сеттеры, +геттеры;
 статический метод для создания животного при прочтении данных из строки
 "dog,кличка", "cat,кличка,вес", "turtle,кличка,вес,дата рождения".
-   */
+
   // атрибуты
   enum Kind {
     DOG,
@@ -24,7 +24,6 @@ public class Pet {
     OTHER,
   }
 
-  private Kind type;
   private String name = null;
   private String date = null;
   private Double weight = 0.0;
@@ -37,15 +36,11 @@ public class Pet {
   private void setDate(String date) { //дата рождения неизменна, поэтому приват?
     this.date = date;
   }
-  public void setWeight(Double weight) {
-    if (weight < 0){
-      System.out.println("Вес не может быть отрицательным: " + weight);
-      return;
-    }
+  public void setWeight(Double weight) { // убрал ошибку, поскольку получаем строку
     this.weight = weight;
   }
 
-  public Kind getType() {
+  public Kind getKind() {
     return type;
   }
   public String getName() {
@@ -59,7 +54,6 @@ public class Pet {
   }
 
   public Pet {
-    type;
     name;
     date;
     weight;
@@ -67,10 +61,11 @@ public class Pet {
   /*
   статический метод для создания животного при прочтении данных из строки
   "dog,кличка", "cat,кличка,вес", "turtle,кличка,вес,дата рождения".
-   */
+
 
   final private static char SEP = ',';
   public static Pet parsePet(String str) {
+
 
     int firstIndex = str.indexOf(SEP);
     int secondIndex = str.indexOf(SEP, firstIndex + 1);
@@ -93,3 +88,5 @@ public class Pet {
 
 
 }
+
+*/

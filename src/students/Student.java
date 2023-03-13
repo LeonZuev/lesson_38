@@ -45,7 +45,7 @@ public class Student {
     List<Map<String, String>> studentsRecords = new ArrayList<>();
 
     try {
-      File newFile = new File("/res/studentsNames.txt"); //
+      File newFile = new File("res/studentsNames.txt"); //
       // создаём путь к файлу
       BufferedReader br = new BufferedReader(new FileReader(newFile));//читаем
 
